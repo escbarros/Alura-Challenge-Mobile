@@ -1,20 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import HomeScreen from "./src/pages/HomeScreen"
+import { useFonts } from 'expo-font';
+
 
 export default function App() {
+
+  const [fontsLoaded] = useFonts({
+    'BebasNeue': require('./src/assets/fonts/BebasNeue-Regular.ttf'),
+  });
+
+
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{backgroundColor: "#222222"}}>
+      <HomeScreen/>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
