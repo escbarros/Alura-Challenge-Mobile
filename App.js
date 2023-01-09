@@ -1,8 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { View } from 'react-native';
 import HomeScreen from "./src/pages/HomeScreen"
 import { useFonts } from 'expo-font';
 
+import 'react-native-gesture-handler';
+import StackNavigator from './src/router/StackNavigator';
 
 export default function App() {
 
@@ -17,9 +19,7 @@ export default function App() {
   }
 
   return (
-    <View style={{backgroundColor: "#222222"}}>
-      <HomeScreen/>
-    </View>
+    <StackNavigator/>
   );
 }
 

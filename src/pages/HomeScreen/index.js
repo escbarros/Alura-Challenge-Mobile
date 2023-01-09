@@ -12,7 +12,7 @@ import Banner from "../../components/FirstScreen/Banner";
 import CategoriesList from "../../components/FirstScreen/CategoriesList";
 
 
-export default function HomeScreen(){
+export default function HomeScreen({navigation}){
     const [cardList] = useCards()
 
     useEffect(()=>{
@@ -30,7 +30,7 @@ export default function HomeScreen(){
     }
 
     return(
-        <View style={{height: "100%"}}>
+        <View style={{height: "100%", backgroundColor: "#222222"}}>
             <View>
                 <FlatList
                     data={cardList}
@@ -43,7 +43,7 @@ export default function HomeScreen(){
                     ListHeaderComponent={TopPage}
                 />
             </View>
-            <TouchableOpacity style={style.addBtn}>
+            <TouchableOpacity style={style.addBtn} onPress={()=>navigation.navigate("form")}>
                 <Text style={{color:"white", fontSize: 48}}>+</Text>
             </TouchableOpacity>
         </View>
