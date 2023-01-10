@@ -1,7 +1,7 @@
 import React from "react";
-import { FlatList } from "react-native";
-import useCategories from "../../hooks/useCategories";
-import CategoryButton from "./CategoryButton";
+import { FlatList, View } from "react-native";
+import useCategories from "../../../hooks/useCategories";
+import CategoryButton from "../../shared/CategoryButton";
 
 export default function CategoriesList(){
     const [list] = useCategories()
@@ -11,6 +11,7 @@ export default function CategoriesList(){
             horizontal
             data={list}
             keyExtractor={(index) => index.color}
+            ItemSeparatorComponent={() => <View style={{width: 30}} />}
             renderItem={(category)=>{
                 return(
                     <CategoryButton categoria={category.item.name} color={category.item.color}/>

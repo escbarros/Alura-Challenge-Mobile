@@ -4,7 +4,7 @@ import style from "./style"
 
 
 
-import PostCard from "../../components/FirstScreen/PostCard";
+import PostCard from "../../components/shared/PostCard";
 import useCards from "../../hooks/useCards";
 
 import Header from "../../components/FirstScreen/Header";
@@ -33,11 +33,14 @@ export default function HomeScreen({navigation}){
         <View style={{height: "100%", backgroundColor: "#222222"}}>
             <View>
                 <FlatList
+                
                     data={cardList}
                     keyExtractor={card => card.image}
                     renderItem={(card)=>{
                         return(
-                            <PostCard image={card.item.image} category={card.item.category}/>
+                            <View style={{paddingHorizontal: 23}}>
+                                <PostCard image={card.item.image} category={card.item.category}/>
+                            </View>
                         )
                     }}
                     ListHeaderComponent={TopPage}

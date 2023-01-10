@@ -9,5 +9,5 @@ export default function useCards(){
         setList(cards)
     },[])
 
-    return [list]
+    return [list, setList]
 }
